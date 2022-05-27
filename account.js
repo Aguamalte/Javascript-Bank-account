@@ -1,61 +1,91 @@
 
 // BANK ACCOUNT
-const info = prompt("Please select one of the following choices 1.See balance  2.Make a deposit  3.Make a withdrawal  4.Get account name  5.Exit");
-function options(){
-  var menu="Please select one of the following choices 1.See balance  2.Make a deposit  3.Make a withdrawal  4.Get account name  5.Exit";
-  return menu;
-}
+
+
+const atm=  parseFloat(prompt("Please select one of the following choices 1.See balance  2.Make a deposit  3.Make a withdrawal  4.Get account name  5.Exit"));
+
 const account = {
   accountName: "John Doe",
   balance: 100,
-  newDeposit:0,
-  newWithdrawal:0,
   getBalance: function()
   {
-  return this.balance-this.newWithdrawal+this.newDeposit;
+  return this.balance;
   },
   deposit: function()
   {
-    this.newDeposit = prompt("Type in the amount you would like to deposit");
-    return this.newDeposit;
+    newDeposit = prompt("Type in the amount you would like to deposit");
+    if(newDeposit<0){
+      account.accountError();
+    }
+    else{
+      alert(`You have deposited ${this.newDeposit}`)
+    }
+    
   },
   withdrawal: function()
   {
-    this.newWithdrawal = prompt("Type in the amount you would like to withdraw");
-    return this.newWithdrawal;
+    newWithdrawal = prompt("Type in the amount you would like to withdraw");
+    if(newDeposit<0){
+      account.accountError();
+    }
+    else{
+      alert(`You have deposited ${this.newDeposit}`)
+    }
   },
   getAccountName: function(){
-this.accName= prompt(`The accounts name is ${this.accountName}`);
+    alert(`The accounts name is ${this.accountName}`);
   },
   accountError: function(){
-
+    alert ("You cannot use negative numbers")
+    
   },
   exitAccount: function(){
-
+    alert(`Shutting down`);
   }
 }
 
-switch(info) 
-{case "1":
-alert(`Your current balance is ${account.getBalance()}`);
-parseFloat(prompt(options()))
-    break;
-  case "2":
+
+/* switch(atm > 0) 
+{ case 1:
+    alert(`Your current balance is ${account.getBalance()}`);
+  break;
+  
+  case 2:
     alert(`You have deposited ${account.deposit()}`);
-    parseFloat(prompt(options()))
     break;
-  case "3":
-    alert(`You have withdrawn ${account.withdrawal()}`)
-    parseFloat(prompt(options()))
+  
+    case 3:
+    alert(`You have withdrawn ${account.withdrawal()}`);
     break;
-    case "4":
+    
+    case 4:
     alert(`${account.getAccountName()}`);
-    parseFloat(prompt(options()))
     break;
-    case "5":
-    alert(`Shutting down`);
+    
+    case 5:
+    exitAccount();
     break;
-  default:
-    parseFloat(prompt(options()))
-}
+  
+    default:
+      alert(`Please enter a valid option`); */
+
+     if(atm ===1){
+      alert(`Your current balance is ${account.getBalance()}`);
+     }
+     else if(atm === 2){
+      alert(`You have deposited ${account.deposit()}`); 
+     }
+     else if(atm === 3){
+      alert(`You have withdrawn ${account.withdrawal()}`);
+     }
+     else if(atm === 4){
+      alert(`${account.getAccountName()}`); 
+     }
+     else if(atm===5){
+        alert(`${account.exitAccount()}`);
+     }
+     else if(atm<0){
+       account.accountError();
+     }
+
 
