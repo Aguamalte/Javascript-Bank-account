@@ -7,7 +7,7 @@ const account = {
   balance: 100,
   getBalance: function()
   {
-  return this.balance;
+    alert (`Your current balance is ${this.balance}`);
   },
   deposit: function()
   {
@@ -16,18 +16,17 @@ const account = {
       account.accountError();
     }
     else{
-      alert(`You have deposited ${this.newDeposit}`)
+      alert(`You have deposited ${newDeposit}`);
     }
-    
   },
   withdrawal: function()
   {
     newWithdrawal = prompt("Type in the amount you would like to withdraw");
-    if(newDeposit<0){
+    if(newWithdrawal<0){
       account.accountError();
     }
     else{
-      alert(`You have deposited ${this.newDeposit}`)
+      alert(`You have withdrawn ${newWithdrawal}`)
     }
   },
   getAccountName: function(){
@@ -42,39 +41,14 @@ const account = {
   }
 }
 
-
-/* switch(atm > 0) 
-{ case 1:
-    alert(`Your current balance is ${account.getBalance()}`);
-  break;
-  
-  case 2:
-    alert(`You have deposited ${account.deposit()}`);
-    break;
-  
-    case 3:
-    alert(`You have withdrawn ${account.withdrawal()}`);
-    break;
-    
-    case 4:
-    alert(`${account.getAccountName()}`);
-    break;
-    
-    case 5:
-    exitAccount();
-    break;
-  
-    default:
-      alert(`Please enter a valid option`); */
-
      if(atm ===1){
-      alert(`Your current balance is ${account.getBalance()}`);
+      alert(`${account.getBalance()}`);
      }
      else if(atm === 2){
-      alert(`You have deposited ${account.deposit()}`); 
+      alert(`${account.deposit()}`); 
      }
      else if(atm === 3){
-      alert(`You have withdrawn ${account.withdrawal()}`);
+      alert(`${account.withdrawal()}`);
      }
      else if(atm === 4){
       alert(`${account.getAccountName()}`); 
@@ -82,6 +56,9 @@ const account = {
      else if(atm===5){
         alert(`${account.exitAccount()}`);
      }
+     else if(atm>5){
+      alert(`You need to enter a valid option`);
+    }
      else if(atm<0){
        account.accountError();
      }
