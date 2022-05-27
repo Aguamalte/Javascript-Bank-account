@@ -1,7 +1,5 @@
 
 // BANK ACCOUNT
-
-
 const atm=  parseFloat(prompt("Please select one of the following choices 1.See balance  2.Make a deposit  3.Make a withdrawal  4.Get account name  5.Exit"));
 
 const account = {
