@@ -12,7 +12,7 @@ const account = {
   deposit: function()
   {
     newDeposit = prompt("Type in the amount you would like to deposit");
-    if(newDeposit<0){
+    if(newDeposit<=0,"",isNaN){
       account.accountError();
     }
     else{
@@ -22,7 +22,7 @@ const account = {
   withdrawal: function()
   {
     newWithdrawal = prompt("Type in the amount you would like to withdraw");
-    if(newWithdrawal<0){
+    if(newWithdrawal<=0,"",/,^,\,d,+,$,/){
       account.accountError();
     }
     else{
