@@ -8,18 +8,19 @@ const account = {
   {
     
     alert (`Your current balance is ${this.balance}`);
-    prompt(ATM());
+    parseFloat(prompt(ATM()));
   },
   deposit: function()
   {
-    newDeposit = prompt("Type in the amount you would like to deposit");
+    newDeposit = parseFloat(prompt("Type in the amount you would like to deposit"));
     if(newDeposit<=0,"",isNaN(newDeposit)){
       account.accountError();
-      prompt(ATM());
+      
     }
     else{
-      alert(`You have deposited ${newDeposit}`);
-      prompt(ATM());
+      this.balance+=newDeposit;
+      alert(`You have deposited $${newDeposit}, you now have a balance of ${this.balance}`);
+      parseFloat(prompt(ATM()));
     }
   },
   withdrawal: function()
@@ -27,27 +28,32 @@ const account = {
     newWithdrawal = prompt("Type in the amount you would like to withdraw");
     if(newWithdrawal<=0,"",isNaN(newWithdrawal)){
       account.accountError();
-      prompt(ATM());
-    }
-    else{
       
-      alert(`You have withdrawn ${newWithdrawal}`);
-      prompt(ATM());
     }
-  },
+    else if (newWithdrawal <= this.balance) {
+				this.balance -= newWithdrawal;
+				alert("Transaction successful!");
+				alert(`Your remaining balance is $${this.balance}`);
+				ATM();
+			}
+      alert(`You have withdrawn $${newWithdrawal},you now have a balance of ${this.balance}`);
+      
+    }
+  }
   getAccountName: function(){
     alert(`The accounts name is ${this.accountName}`);
-    prompt(ATM());
+    
   },
   accountError: function(){
     alert ("You have to input a valid number")
-    prompt(ATM());
+    
     
   },
   exitAccount: function(){
     alert(`Shutting down`);
   }
-}    
+}
+   
      function ATM() {
       const atm=  parseFloat(prompt("Please select one of the following choices 1.See balance  2.Make a deposit  3.Make a withdrawal  4.Get account name  5.Exit"));
       // objekt atm med parseFloat och propmt här
@@ -68,6 +74,7 @@ const account = {
        }
        else if(atm>5){
         alert(`You need to enter a valid option`);
+        prompt(ATM());
       }
        else if(atm<=0,"",isNaN){
          account.accountError(); 
@@ -76,5 +83,5 @@ const account = {
 
       // glöm inte kalla på din funktion för att starta.
     }
-prompt(ATM());
+parseFloat(prompt(ATM()));
 
