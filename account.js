@@ -1,12 +1,12 @@
 
 // BANK ACCOUNT
 
-
 const account = {
   accountName: "John Doe",
   balance: 100,
   getBalance: function()
   {
+    
     alert (`Your current balance is ${this.balance}`);
     prompt(ATM());
   },
@@ -18,7 +18,6 @@ const account = {
       prompt(ATM());
     }
     else{
-      newDeposit+this.balance;
       alert(`You have deposited ${newDeposit}`);
       prompt(ATM());
     }
@@ -31,8 +30,8 @@ const account = {
       prompt(ATM());
     }
     else{
-      this.balance-newWithdrawal;
-      alert(`You have withdrawn ${newWithdrawal}`)
+      
+      alert(`You have withdrawn ${newWithdrawal}`);
       prompt(ATM());
     }
   },
@@ -71,8 +70,7 @@ const account = {
         alert(`You need to enter a valid option`);
       }
        else if(atm<=0,"",isNaN){
-         account.accountError();
-         
+         account.accountError(); 
        }
       // här lägger du if satsen rad 45 - 59
 
